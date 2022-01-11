@@ -58,7 +58,18 @@ public class Main {
 	    // 
     }
 	
-    public static void decode(String text) {
+    public static void decode(StringTree tree, String text) {
+	    // input morse output letter
+	LinkedList<String> morse = new Queue<>();
+	Scanner sc = new Scanner(text);
+	while (sc.hasNext()) {
+		morse.add(sc.next());
+	}
 	    
+	StringBuilder decoded    
     }
+	
+    public static void traverseTree(StringTree tree, String morseChar) {
+	    
+    }	    
 }
