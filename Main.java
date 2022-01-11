@@ -3,6 +3,15 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	StringTree morseCode = new StringTree();
+	
+    }
+	
+    public static void encode(String text) {
+	    
+    }
+	
+    public static void decode(String text) {
+	    
     }
 }
