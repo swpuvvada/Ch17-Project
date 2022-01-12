@@ -66,7 +66,8 @@ public class Main {
 		morse.add(sc.next());
 	}
 	    
-	StringBuilder decoded    
+	StringBuilder decoded = new StringBuilder();
+	
     }
 	
     public static void traverseTree(StringTree tree, String morseChar) {
