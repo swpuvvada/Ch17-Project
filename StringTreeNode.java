@@ -3,14 +3,14 @@ package com.company;
 public class StringTreeNode
 {
     public String data;
-    public IntTreeNode left;
-    public IntTreeNode right;
+    public StringTreeNode left;
+    public StringTreeNode right;
 
-    public IntTreeNode(String data) {
+    public StringTreeNode(String data) {
         this(data, null, null);
     }
 
-    public IntTreeNode(String data, IntTreeNode left, IntTreeNode right) {
+    public StringTreeNode(String data, StringTreeNode left, StringTreeNode right) {
         this.data = data;
         this.left = left;
         this.right = right;
