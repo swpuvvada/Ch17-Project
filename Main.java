@@ -56,7 +56,7 @@ public class Main {
 
     public static void encode(String text) {
         // Input letter  output morse
-        //
+        
     }
 
     public static void decode(StringTree tree, String text) {
