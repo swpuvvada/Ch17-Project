@@ -17,7 +17,7 @@ public class StringTree
     }
     public StringTree()
     {
-    this.overallRoot = null;
+        this.overallRoot = null;
     }
 
     public StringTree(StringTreeNode overallRoot)
@@ -54,7 +54,7 @@ public class StringTree
         return countEmpty(overallRoot);
     }
 
-    private int countEmpty (IntTreeNode root) {
+    private int countEmpty (StringTreeNode root) {
         if (root == null) {
             return 1;
         } else if (root.left == null && root.right != null) {
@@ -72,7 +72,7 @@ public class StringTree
         printLevel(overallRoot, n);
     }
 
-    private void printLevel(IntTreeNode root, int n) {
+    private void printLevel(StringTreeNode root, int n) {
         if (root != null) {
             if (n == 1) {
                 System.out.println(root.data);
