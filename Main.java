@@ -17,10 +17,10 @@ public class Main {
                 ".--.", "--.-", ".-.",  "...",  "-",
                 "..-",  "...-", ".--",  "-..-", "-.--",
                 "--..", "|" };
-        userPrompt();
+        userPrompt(code, letter);
     }
 
-    public static void userPrompt() {
+    public static void userPrompt(String[] code, char[] letter) {
         System.out.println("Would you like to decode or encode text? Type 'd' to decode and 'e' to encode");
         System.out.print("> ");
         Scanner sc = new Scanner(System.in);
@@ -40,6 +40,7 @@ public class Main {
                System.out.print("> ");
                input = sc.nextLine();
                StringTree morseCode = createMorseTree();
+                System.out.println("Your phrase encoded is: " + englishToMorse(code, input, letter));
                System.out.println("Would you like to decode or encode text? Type 'd' to decode and 'e' to encode. Type 'q' to quit");
                input = sc.next();
            }
@@ -96,9 +97,16 @@ public class Main {
         return morseCode;
     }
 
-    public static void encode(String text) {
-        // Input letter  output morse
-        //
+    public static void englishToMorse(String[] code, String words, char[] letter) {
+    //user input is "words"
+        for (int i = 0; i < words.length(); i++) {
+            for (int j = 0; j < letter.length; j++) {
+                if (words.charAt(i) == letter[j]) {
+                    System.out.print(code[j] + " ");
+                    break;
+            }
+            }
+        }
     }
 
     public static String decode(StringTree tree, String text) {
