@@ -5,18 +5,16 @@ public class Main {
 
     public static void main(String[] args) {
         char[] letter = { 'a', 'b', 'c', 'd', 'e', 'f',
-                          'g', 'h', 'i', 'j', 'k', 'l',
-                          'm', 'n', 'o', 'p', 'q', 'r',
-                          's', 't', 'u', 'v', 'w', 'x',
-                          'y', 'z', '1', '2', '3', '4',
-                          '5', '6', '7', '8', '9', '0' };
+                        'g', 'h', 'i', 'j', 'k', 'l',
+                        'm', 'n', 'o', 'p', 'q', 'r',
+                        's', 't', 'u', 'v', 'w', 'x',
+                        'y', 'z',};
 
-        String[] code = { ".-",   "-...", "-.-.", "-..",  ".",
-                "..-.", "--.",  "....", "..",   ".---",
-                "-.-",  ".-..", "--",   "-.",   "---",
-                ".--.", "--.-", ".-.",  "...",  "-",
-                "..-",  "...-", ".--",  "-..-", "-.--",
-                "--..", "|" };
+        String[] code = { ".-",   "...-", "-.-.", "-..",  ".",
+                        "..-.", "--.",  "....", "..",   ".---",
+                        "-.-",  ".-..", "--",   "-.",   "---",
+                        ".--.", "--.-", ".-.", "...", "-","..-",
+                        "...-", ".--", "_.._", "-.--",};
         userPrompt(code, letter);
     }
 
@@ -26,24 +24,24 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String input = sc.next();
         do {
-           if (input.equals("d")) {
-               System.out.println("Please type the phrase you would like decoded");
-               System.out.print("> ");
-               sc.nextLine();
-               input = sc.nextLine();
-               StringTree morseCode = createMorseTree();
-               System.out.println("Your phrase decoded is: " + decode(morseCode, input));
-               System.out.println("Would you like to decode or encode text? Type 'd' to decode and 'e' to encode. Type 'q' to quit");
-               input = sc.next();               ;
-           } else if (input.equals("e")) {
-               System.out.println("Please type the phrase you would like encoded");
-               System.out.print("> ");
-               input = sc.nextLine();
-               StringTree morseCode = createMorseTree();
-                System.out.println("Your phrase encoded is: " + englishToMorse(code, input, letter));
-               System.out.println("Would you like to decode or encode text? Type 'd' to decode and 'e' to encode. Type 'q' to quit");
-               input = sc.next();
-           }
+            if (input.equals("d")) {
+                System.out.println("Please type the phrase you would like decoded");
+                System.out.print("> ");
+                sc.nextLine();
+                input = sc.nextLine();
+                StringTree morseCode = createMorseTree();
+                System.out.println("Your phrase decoded is: " + decode(morseCode, input));
+                System.out.println("Would you like to decode or encode text? Type 'd' to decode and 'e' to encode. Type 'q' to quit");
+                input = sc.next();               ;
+            } else if (input.equals("e")) {
+                System.out.println("Please type the phrase you would like encoded");
+                System.out.print("> ");
+                sc.nextLine();
+                input = sc.nextLine();
+                System.out.println("Your phrase encoded is: " + wordsToMorse(code, input, letter));
+                System.out.println("Would you like to decode or encode text? Type 'd' to decode and 'e' to encode. Type 'q' to quit");
+                input = sc.next();
+            }
         } while (!input.equals("q"));
     }
 
@@ -97,16 +95,17 @@ public class Main {
         return morseCode;
     }
 
-    public static void englishToMorse(String[] code, String words, char[] letter) {
-    //user input is "words"
+    public static String wordsToMorse(String[] code, String words, char[] letter) {
+        String morseCode = "";
         for (int i = 0; i < words.length(); i++) {
             for (int j = 0; j < letter.length; j++) {
                 if (words.charAt(i) == letter[j]) {
-                    System.out.print(code[j] + " ");
+                    morseCode += code[j] + " ";
                     break;
-            }
+                }
             }
         }
+        return morseCode;
     }
 
     public static String decode(StringTree tree, String text) {
