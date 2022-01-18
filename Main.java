@@ -22,25 +22,25 @@ public class Main {
         System.out.println("Would you like to decode or encode text? Type 'd' to decode and 'e' to encode");
         System.out.print("> ");
         Scanner sc = new Scanner(System.in);
-        String input = sc.next();
+        String input = sc.next().toLowerCase();
         do {
             if (input.equals("d")) {
                 System.out.println("Please type the phrase you would like decoded");
                 System.out.print("> ");
                 sc.nextLine();
-                input = sc.nextLine();
+                input = sc.nextLine().toLowerCase();
                 StringTree morseCode = createMorseTree();
                 System.out.println("Your phrase decoded is: " + decode(morseCode, input));
                 System.out.println("Would you like to decode or encode text? Type 'd' to decode and 'e' to encode. Type 'q' to quit");
-                input = sc.next();               ;
+                input = sc.next().toLowerCase();               ;
             } else if (input.equals("e")) {
                 System.out.println("Please type the phrase you would like encoded");
                 System.out.print("> ");
                 sc.nextLine();
-                input = sc.nextLine();
+                input = sc.nextLine().toLowerCase();
                 System.out.println("Your phrase encoded is: " + wordsToMorse(code, input, letter));
                 System.out.println("Would you like to decode or encode text? Type 'd' to decode and 'e' to encode. Type 'q' to quit");
-                input = sc.next();
+                input = sc.next().toLowerCase();
             }
         } while (!input.equals("q"));
     }
